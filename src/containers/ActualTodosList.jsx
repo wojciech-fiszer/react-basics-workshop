@@ -10,12 +10,10 @@ class ActualTodosList extends React.Component {
     onArchive = () => this.props.onArchive(this.props.todos.filter(t => t.completed))
 
     render() {
-        return (
-            <div>
-                <TodosList title='Todo' todos={this.props.todos} onToggle={this.props.onToggle} onDelete={this.props.onDelete} />
-                <TodosControl title={this.props.title} onAdd={this.props.onAdd} onTitleChange={this.props.onTitleChange} onArchive={this.onArchive} />
-            </div>
-        )
+        return [
+            <TodosList key="1" title='Todo' todos={this.props.todos} onToggle={this.props.onToggle} onDelete={this.props.onDelete} />,
+            <TodosControl key="2" title={this.props.title} onAdd={this.props.onAdd} onTitleChange={this.props.onTitleChange} onArchive={this.onArchive} />
+        ]
     }
 }
 

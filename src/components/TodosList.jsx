@@ -5,14 +5,14 @@ const TodosList = ({
 }) =>
     <div>
         <h3>{title}</h3>
-        <div className="list-group">
+        <ul className="list-group">
             {todos.map(todo =>
-                <div key={todo.id} className="list-group-item">
+                <li key={todo.id} className="list-group-item">
                     <input type="checkbox" checked={todo.completed} onChange={e => onToggle(todo.id)} />
                     {todo.title}{onDelete && <span className="close" onClick={e => onDelete(todo.id)}>&times;</span>}
-                </div>
+                </li>
             )}
-        </div>
+        </ul>
     </div>
 
 TodosList.defaultProps = {

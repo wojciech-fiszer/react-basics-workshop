@@ -3,7 +3,8 @@ const initialState = []
 const todos = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_TODO':
-            return [...state, createTodo(action.payload.trim())]
+            const title = action.payload.trim()
+            return title ? [...state, createTodo(title)] : state
         case 'DELETE_TODO':
             return deleteTodosWithId(state, action.payload)
         case 'ARCHIVE_TODOS':
